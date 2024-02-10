@@ -40,7 +40,7 @@ import { forwardRef } from "react";
 
 import { Outlet, useNavigate } from "react-router-dom";
 
-import useResponsive from "@/hooks/use-md";
+import useResponsive from "@/hooks/use-responsive";
 
 interface SidebarActionProps {
   tooltipProps?: Omit<TooltipProps, "title">;
