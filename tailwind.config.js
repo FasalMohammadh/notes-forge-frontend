@@ -12,10 +12,10 @@ export default {
       },
     },
     screens: {
-      sm: 600,
-      md: 900,
-      lg: 1200,
-      xl: 1536,
+      sm: "600px",
+      md: "900px",
+      lg: "1200px",
+      xl: "1536px",
     },
   },
 

@@ -12,7 +12,7 @@ import signInFormSchema, {
   type SignInFormSchema,
 } from "@/pages/sign-in/utils/sign-in-form-schema";
 
-function SignIn() {
+function SignInPage() {
   const {
     register,
     handleSubmit,
@@ -98,4 +98,4 @@ function SignIn() {
   );
 }
 
-export default SignIn;
+export default SignInPage;
