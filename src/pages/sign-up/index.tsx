@@ -1,11 +1,13 @@
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import AppBar from "@mui/material/AppBar";
-import FormHelperText from "@mui/material/FormHelperText";
-import Stack from "@mui/material/Stack";
-import Toolbar from "@mui/material/Toolbar";
+import {
+  AppBar,
+  Box,
+  Button,
+  FormHelperText,
+  Stack,
+  TextField,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 
 import { useForm } from "react-hook-form";
 
@@ -13,24 +15,24 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import signInFormSchema, {
-  type SignInFormSchema,
-} from "@/pages/sign-in/utils/sign-in-form-schema";
+import signUpSchema, {
+  SignUpSchema,
+} from "@/pages/sign-up/utils/sign-up-form-schema";
 
-function SignInPage() {
+function SignUp() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    ...form
-  } = useForm<SignInFormSchema>({
-    resolver: zodResolver(signInFormSchema),
+    reset,
+  } = useForm<SignUpSchema>({
+    resolver: zodResolver(signUpSchema),
   });
 
   const navigate = useNavigate();
 
-  function onSubmit(data: SignInFormSchema) {
-    form.reset();
+  function onSubmit(data: SignUpSchema) {
+    reset();
     navigate("/dashboard/overview");
   }
 
@@ -73,8 +75,21 @@ function SignInPage() {
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-6 m-auto py-10 px-16 border border-solid border-neutral-200 max-w-lg bg-white/75 rounded-xl backdrop:blur-lg backdrop:saturate-150 w-full"
         >
-          <h1 className="text-3xl font-semibold">Sign in</h1>
+          <h1 className="text-3xl font-semibold">Register</h1>
           <section className="space-y-3">
+            <div>
+              <TextField
+                fullWidth
+                type="text"
+                label="Name"
+                error={!!errors.name}
+                size="small"
+                {...register("name")}
+              />
+              <FormHelperText error={!!errors.name}>
+                {errors.name?.message ?? " "}
+              </FormHelperText>
+            </div>
             <div>
               <TextField
                 fullWidth
@@ -88,7 +103,19 @@ function SignInPage() {
                 {errors.email?.message ?? " "}
               </FormHelperText>
             </div>
-
+            <div>
+              <TextField
+                fullWidth
+                type="text"
+                label="Mobile Number"
+                error={!!errors.mobileNumber}
+                size="small"
+                {...register("mobileNumber")}
+              />
+              <FormHelperText error={!!errors.mobileNumber}>
+                {errors.mobileNumber?.message ?? " "}
+              </FormHelperText>
+            </div>
             <div>
               <TextField
                 fullWidth
@@ -110,12 +137,12 @@ function SignInPage() {
             color="primary"
             className="w-full rounded-full"
           >
-            Sign in
+            Sign up
           </Button>
 
           <Typography className="text-center" variant="body2">
-            Don't have an account?&nbsp;
-            <Link to="/sign-up">Sign up</Link>
+            Have an account?&nbsp;
+            <Link to="/sign-in">Sign in</Link>
           </Typography>
         </form>
       </main>
@@ -123,4 +150,4 @@ function SignInPage() {
   );
 }
 
-export default SignInPage;
+export default SignUp;

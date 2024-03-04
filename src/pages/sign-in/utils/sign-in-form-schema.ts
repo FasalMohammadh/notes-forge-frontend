@@ -1,7 +1,7 @@
 import z from "zod";
 
 const signInFormSchema = z.object({
-  email: z.string().trim().email().min(1, { message: "Email is required." }),
+  email: z.string().trim().min(1, { message: "Email is required." }).email(),
   password: z
     .string()
     .trim()
