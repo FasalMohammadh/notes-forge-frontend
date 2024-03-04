@@ -178,7 +178,7 @@ function Layout() {
           </div>
         </Toolbar>
       </AppBar>
-      <Box className="flex">
+      <Box className="flex flex-grow">
         <nav className="shrink-0 sm:w-[280px]">
           {sm ? (
             <Drawer
@@ -203,7 +203,7 @@ function Layout() {
             </Drawer>
           )}
         </nav>
-        <main className="flex-1 p-3 w-[calc(100%_-_280px)]">
+        <main className="flex-1 w-[calc(100%_-_280px)]">
           <Outlet />
         </main>
       </Box>

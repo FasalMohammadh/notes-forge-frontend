@@ -71,3 +71,7 @@
 body {
   @apply font-mont;
 }
+
+#root {
+  @apply h-screen flex flex-col;
+}

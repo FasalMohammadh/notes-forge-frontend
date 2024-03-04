@@ -20,8 +20,8 @@ function LoggedUserMenu() {
 
   return (
     <>
-      <IconButton onClick={handleClick} className="h-12 w-12">
-        <Avatar>M</Avatar>
+      <IconButton onClick={handleClick} className="size-8">
+        <Avatar className="size-8">M</Avatar>
       </IconButton>
       <Menu
         anchorEl={anchorEl}

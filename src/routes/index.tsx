@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import SignInPage from "@/pages/sign-in";
-import OverviewPage from "@/pages/dashboard/overview";
-import Layout from "@/pages/dashboard/layout";
-
 import SignUp from "@/pages/sign-up";
+import SignInPage from "@/pages/sign-in";
+import Layout from "@/pages/dashboard/layout";
+import OverviewPage from "@/pages/dashboard/overview";
+import NoteViewPage from "@/pages/user-dashboard/note-view";
 
 const router = createBrowserRouter([
   {
@@ -24,12 +24,8 @@ const router = createBrowserRouter([
         element: <OverviewPage />,
       },
       {
-        path: ":folderId",
-        element: <OverviewPage />,
-      },
-      {
-        path: ":folderId/:noteId",
-        element: <OverviewPage />,
+        path: "/:folderId/:noteId",
+        element: <NoteViewPage />,
       },
     ],
   },
