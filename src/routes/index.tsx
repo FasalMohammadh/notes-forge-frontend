@@ -1,22 +1,23 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import SignUp from "@/pages/sign-up";
+import SignUpPage from "@/pages/sign-up";
 import SignInPage from "@/pages/sign-in";
-import Layout from "@/pages/dashboard/layout";
 import OverviewPage from "@/pages/dashboard/overview";
 import NoteViewPage from "@/pages/user-dashboard/note-view";
 
+import Layout from "@/pages/dashboard/layout";
+
 const router = createBrowserRouter([
   {
-    path: "/sign-up",
-    element: <SignUp />,
+    path: "sign-up",
+    element: <SignUpPage />,
   },
   {
-    path: "/sign-in",
+    path: "sign-in",
     element: <SignInPage />,
   },
   {
-    path: "/dashboard",
+    path: "dashboard",
     element: <Layout />,
     children: [
       {
@@ -24,8 +25,14 @@ const router = createBrowserRouter([
         element: <OverviewPage />,
       },
       {
-        path: "/:folderId/:noteId",
-        element: <NoteViewPage />,
+        path: "folders",
+        element: <OverviewPage />,
+        children: [{ path: ":folderId", element: <OverviewPage /> }],
+      },
+      {
+        path: "notes",
+        element: <OverviewPage />,
+        children: [{ path: ":noteId", element: <NoteViewPage /> }],
       },
     ],
   },

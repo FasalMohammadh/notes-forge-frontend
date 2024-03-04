@@ -1,13 +1,11 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  FormHelperText,
-  Stack,
-  TextField,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/AppBar";
+import Button from "@mui/material/AppBar";
+import FormHelperText from "@mui/material/AppBar";
+import Stack from "@mui/material/AppBar";
+import TextField from "@mui/material/AppBar";
+import Toolbar from "@mui/material/AppBar";
+import Typography from "@mui/material/AppBar";
 
 import { useForm } from "react-hook-form";
 
@@ -19,7 +17,7 @@ import signUpSchema, {
   SignUpSchema,
 } from "@/pages/sign-up/utils/sign-up-form-schema";
 
-function SignUp() {
+function SignUpPage() {
   const {
     register,
     handleSubmit,
@@ -150,4 +148,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUpPage;
