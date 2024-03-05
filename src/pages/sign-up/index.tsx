@@ -1,11 +1,11 @@
 import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/AppBar";
-import Button from "@mui/material/AppBar";
-import FormHelperText from "@mui/material/AppBar";
-import Stack from "@mui/material/AppBar";
-import TextField from "@mui/material/AppBar";
-import Toolbar from "@mui/material/AppBar";
-import Typography from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import FormHelperText from "@mui/material/FormHelperText";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
 
 import { useForm } from "react-hook-form";
 
@@ -73,7 +73,7 @@ function SignUpPage() {
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-6 m-auto py-10 px-16 border border-solid border-neutral-200 max-w-lg bg-white/75 rounded-xl backdrop:blur-lg backdrop:saturate-150 w-full"
         >
-          <h1 className="text-3xl font-semibold">Register</h1>
+          <h1 className="text-3xl font-semibold">Sign up</h1>
           <section className="space-y-3">
             <div>
               <TextField
