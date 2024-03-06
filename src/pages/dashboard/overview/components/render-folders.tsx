@@ -1,45 +1,34 @@
-import FolderGridView from "@/pages/dashboard/overview/components/folder-grid-view";
-import FolderListView from "@/pages/dashboard/overview/components/folder-list-view";
+import RenderFolder from "@/pages/dashboard/overview/components/render-folder";
 
 const folders = [
   {
     id: "1",
     name: "School Notes",
+    updatedAt: new Date(),
+    createdAt: new Date(),
+    files: {
+      count: 5,
+    },
   },
   {
     id: "2",
     name: "Personal Notes",
+    updatedAt: new Date(),
+    createdAt: new Date(),
+    files: {
+      count: 5,
+    },
   },
   {
     id: "3",
     name: "Collage Notes",
+    updatedAt: new Date(),
+    createdAt: new Date(),
+    files: {
+      count: 5,
+    },
   },
 ];
-
-function RenderFolder(
-  props: Readonly<{
-    view: FolderView;
-    folder: {
-      id: string;
-      name: string;
-    };
-  }>
-) {
-  if (props.view === "LIST") {
-    return (
-      <FolderListView
-        folder={{
-          ...props.folder,
-          createdAt: new Date(),
-          updatedAt: new Date(),
-          files: { count: 10 },
-        }}
-      />
-    );
-  }
-
-  return <FolderGridView folder={props.folder} />;
-}
 
 function RenderFolders(props: Readonly<Props>) {
   return (
@@ -51,17 +40,17 @@ function RenderFolders(props: Readonly<Props>) {
       }`}
     >
       {folders.map((folder) => (
-        <RenderFolder key={folder.id} folder={folder} view={props.view} />
+        <RenderFolder key={folder.id} view={props.view} folder={folder} />
       ))}
     </menu>
   );
 }
 
-type FolderView = "GRID" | "LIST";
+type FolderViewType = "GRID" | "LIST";
 
 type Props = {
-  view: FolderView;
+  view: FolderViewType;
 };
 
-export type { FolderView };
+export type { FolderViewType };
 export default RenderFolders;

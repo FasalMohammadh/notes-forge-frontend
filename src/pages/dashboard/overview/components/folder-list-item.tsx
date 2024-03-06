@@ -1,23 +1,20 @@
 import IconButton from "@mui/material/IconButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemButton from "@mui/material/ListItemButton";
-
-import FolderIcon from "@mui/icons-material/Folder";
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 
+import FolderIcon from "@mui/icons-material/Folder";
 import MenuIcon from "@mui/icons-material/MoreVert";
 
 import { useState } from "react";
-import Stack from "@mui/material/Stack";
+
 import { formatDate } from "@/library/format-date";
 
-function FolderListView(props: Readonly<Props>) {
+import FolderActionsMenu from "@/pages/dashboard/overview/components/folder-actions-menu";
+
+function ListItemFolder(props: Readonly<Props>) {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -50,38 +47,21 @@ function FolderListView(props: Readonly<Props>) {
             />
             <div className="flex gap-4">
               <ListItemText
+                secondary={`Created on: ${formatDate(props.folder.createdAt)}`}
                 secondaryTypographyProps={{
                   className: "text-neutral-500 text-sm",
                 }}
-                secondary={`Created on: ${formatDate(props.folder.createdAt)}`}
               />
               <ListItemText
+                secondary={`Updated on: ${formatDate(props.folder.updatedAt)}`}
                 secondaryTypographyProps={{
                   className: "text-neutral-500 text-sm",
                 }}
-                secondary={`Updated on: ${formatDate(props.folder.updatedAt)}`}
               />
             </div>
           </Stack>
         </ListItemButton>
       </ListItem>
-
-      <Menu
-        open={!!anchorEl}
-        disablePortal
-        anchorEl={anchorEl}
-        onClose={() => setAnchorEl(null)}
-        elevation={1}
-      >
-        <MenuItem className="text-neutral-500 gap-2">
-          <EditIcon color="inherit" fontSize="small" />
-          <Typography>Edit</Typography>
-        </MenuItem>
-        <MenuItem className="text-neutral-500 gap-2">
-          <DeleteIcon color="inherit" fontSize="small" />
-          <Typography>Delete</Typography>
-        </MenuItem>
-      </Menu>
     </>
   );
 }
@@ -100,4 +80,4 @@ type Folder = {
   };
 };
 
-export default FolderListView;
+export default ListItemFolder;
